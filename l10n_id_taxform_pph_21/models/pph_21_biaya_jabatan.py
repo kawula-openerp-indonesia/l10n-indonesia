@@ -85,9 +85,12 @@ class Pph21TunjanganJabatan(models.Model):
         biaya_jabatan_rutin = self.get_biaya_jabatan_rutin(
             jumlah_penghasilan_rutin,
             tanggal_pemotongan)
-        result["biaya_jabatan_non_rutin"] = self.get_biaya_jabatan_non_rutin(
+        biaya_jabatan_non_rutin = self.get_biaya_jabatan_non_rutin(
             jumlah_penghasilan_non_rutin,
             biaya_jabatan_rutin,
             tanggal_pemotongan)
         result["biaya_jabatan_rutin"] = biaya_jabatan_rutin
+        result["biaya_jabatan_non_rutin"] = biaya_jabatan_non_rutin
+        result["biaya_jabatan"] = biaya_jabatan_rutin + \
+            biaya_jabatan_non_rutin
         return result
