@@ -3,6 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, fields, api
+from openerp.tools.translate import _
+from datetime import datetime
 
 
 class Pph21NpwpRateModifier(models.Model):
@@ -23,7 +25,16 @@ class Pph21NpwpRateModifier(models.Model):
         )
 
     @api.model
-    def _find(self, dt=None):
-        #TODO:
-        result = False
-        return result
+    def find(self, dt=None):
+        if not dt:
+            dt = datetime.now().strftime("%Y-%m-%d")
+        criteria = [("date_start", "<=", dt)]
+        results = self.search(criteria, limit=1)
+        if not results:
+            raise models.ValidationError(_("Wes"))
+        return results[0]
+
+    @api.model
+    def get_rate(self, dt=None):
+        modifier = self.find(dt)
+        return modifier.pph_rate_modifier
