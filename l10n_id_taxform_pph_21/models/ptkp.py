@@ -14,10 +14,10 @@ class PtkpCategory(models.Model):
     name = fields.Char(
         string="Category",
         required=True,
-        )
+    )
     note = fields.Text(
         string="Additional Note",
-        )
+    )
 
     @api.multi
     def get_rate(self, dt=None):
@@ -27,6 +27,7 @@ class PtkpCategory(models.Model):
         result = ptkp.get_rate(self)
         return result
 
+
 class Ptkp(models.Model):
     _name = "l10n_id.ptkp"
     _description = "Tarif PTKP"
@@ -34,19 +35,19 @@ class Ptkp(models.Model):
     name = fields.Char(
         string="Dasar Hukum",
         required=True,
-        )
+    )
     date_start = fields.Date(
         string="Tanggal Mulai Berlaku",
         required=True,
-        )
+    )
     date_end = fields.Date(
         string="Tanggal Selesai Berlaku",
-        )
+    )
     line_ids = fields.One2many(
         string="Detail Tarif",
         comodel_name="l10n_id.ptkp_line",
         inverse_name="ptkp_id",
-        )
+    )
 
     @api.model
     def find(self, dt=None):
@@ -61,7 +62,8 @@ class Ptkp(models.Model):
     @api.multi
     def get_rate(self, ptkp_category):
         self.ensure_one()
-        lines = self.line_ids.filtered(lambda r: r.ptkp_category_id.id == ptkp_category.id)
+        lines = self.line_ids.filtered(
+            lambda r: r.ptkp_category_id.id == ptkp_category.id)
         if not lines:
             raise models.ValidationError(_("Wes"))
         return lines[0].ptkp_rate
@@ -75,13 +77,13 @@ class PtkpLine(models.Model):
         string="PTKP",
         comodel_name="l10n_id.ptkp",
         ondelete="cascade",
-        )
+    )
     ptkp_category_id = fields.Many2one(
         string="PTKP Category",
         comodel_name="l10n_id.ptkp_category",
         required=True,
-        )
+    )
     ptkp_rate = fields.Float(
         string="Tarif PTKP",
         required=True,
-        )
+    )

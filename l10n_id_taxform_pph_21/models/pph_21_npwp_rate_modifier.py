@@ -14,15 +14,15 @@ class Pph21NpwpRateModifier(models.Model):
     name = fields.Char(
         string="Dasar Hukum",
         required=True,
-        )
+    )
     date_start = fields.Date(
         string="Tanggal Mulai Berlaku",
         required=True,
-        )
+    )
     pph_rate_modifier = fields.Float(
         string="PPh Rate Modifier",
         required=True,
-        )
+    )
 
     @api.model
     def find(self, dt=None):

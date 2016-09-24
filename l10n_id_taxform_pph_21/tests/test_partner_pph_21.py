@@ -6,6 +6,7 @@ from openerp.tests.common import TransactionCase
 
 
 class Pph21RateCase(TransactionCase):
+
     def setUp(self, *args, **kwargs):
         super(Pph21RateCase, self).setUp(*args, **kwargs)
         self.partner = self.env.ref("base.main_partner")
@@ -19,7 +20,7 @@ class Pph21RateCase(TransactionCase):
             gaji=5000000.0,
             jumlah_penghasilan_non_rutin=10000000.0,
             pensiun=100000.0,
-            )
+        )
         self.assertEqual(
             pph["pengurang"],
             600000.0)
@@ -42,7 +43,6 @@ class Pph21RateCase(TransactionCase):
             pph["pph"],
             557500.0)
 
-            
     def test_2(self):
         self.partner.write({"vat": "123"})
         pph = self.partner.compute_pph_21_2110001(
@@ -51,7 +51,7 @@ class Pph21RateCase(TransactionCase):
             gaji=5000000.0,
             jumlah_penghasilan_non_rutin=10000000.0,
             pensiun=100000.0,
-            )
+        )
         self.assertEqual(
             pph["pengurang"],
             600000.0)
@@ -82,7 +82,7 @@ class Pph21RateCase(TransactionCase):
             gaji=5000000.0,
             jumlah_penghasilan_non_rutin=10000000.0,
             pensiun=100000.0,
-            )
+        )
         self.assertEqual(
             pph["pengurang"],
             600000.0)
@@ -111,7 +111,7 @@ class Pph21RateCase(TransactionCase):
             bulan_bergabung=1,
             ptkp_category=self.ptkp_category,
             jumlah_penghasilan_non_rutin=10000000.0,
-            )
+        )
         self.assertEqual(
             pph["pengurang"],
             500000.0)
@@ -133,4 +133,3 @@ class Pph21RateCase(TransactionCase):
         self.assertEqual(
             pph["pph"],
             475000.0)
-

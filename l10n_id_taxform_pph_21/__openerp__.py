@@ -23,5 +23,5 @@
         "demo/pph_21_npwp_rate_modifier_demo.xml",
         "demo/pph_21_rate_demo.xml",
         "demo/ptkp_demo.xml",
-        ]
+    ]
 }

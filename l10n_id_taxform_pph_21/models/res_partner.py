@@ -19,8 +19,8 @@ class ResPartner(models.Model):
             tunjangan_lain=0.0,
             jumlah_penghasilan_non_rutin=0.0,
             pensiun=0.0,
-            ):
-        #TODO
+    ):
+        # TODO
         self.ensure_one()
         result = {
             "biaya_jabatan_rutin": 0.0,
@@ -37,19 +37,20 @@ class ResPartner(models.Model):
             "pph_non_rutin_setahun": 0.0,
             "pph_setahun": 0.0,
             "pph": 0.0,
-            }
+        }
         jumlah_penghasilan_rutin = gaji + \
             tunjangan_pph + tunjangan_lain
 
-
         obj_biaya_jabatan = self.env["l10n_id.pph_21_biaya_jabatan"]
-        perhitungan_biaya_jabatan = obj_biaya_jabatan.find(tanggal_pemotongan).get_biaya_jabatan(
+        perhitungan_biaya_jabatan = obj_biaya_jabatan.find(
+            tanggal_pemotongan).get_biaya_jabatan(
             jumlah_penghasilan_rutin,
             jumlah_penghasilan_non_rutin,
             tanggal_pemotongan,
-            )
+        )
         biaya_jabatan_rutin = perhitungan_biaya_jabatan["biaya_jabatan_rutin"]
-        biaya_jabatan_non_rutin = perhitungan_biaya_jabatan["biaya_jabatan_non_rutin"]
+        biaya_jabatan_non_rutin = perhitungan_biaya_jabatan[
+            "biaya_jabatan_non_rutin"]
         biaya_jabatan = perhitungan_biaya_jabatan["biaya_jabatan"]
         pengurang = biaya_jabatan_rutin + \
             biaya_jabatan_non_rutin + \
@@ -74,7 +75,8 @@ class ResPartner(models.Model):
 
         obj_pph = self.env["l10n_id.pph_21_rate"]
         pph_setahun = obj_pph.find(tanggal_pemotongan).compute_tax(pkp)
-        pph_setahun_rutin = obj_pph.find(tanggal_pemotongan).compute_tax(pkp_rutin)
+        pph_setahun_rutin = obj_pph.find(
+            tanggal_pemotongan).compute_tax(pkp_rutin)
         pph_non_rutin = pph_setahun - pph_setahun_rutin
 
         pph_sebulan = pph_setahun_rutin / (13 - bulan_bergabung)
@@ -86,7 +88,6 @@ class ResPartner(models.Model):
             pph = (obj_multiplier.get_rate(tanggal_pemotongan) / 100.00) * pph
         pph = float(int(pph))
 
-        
         result["biaya_jabatan_rutin"] = biaya_jabatan_rutin
         result["biaya_jabatan_non_rutin"] = biaya_jabatan_non_rutin
         result["biaya_jabatan"] = biaya_jabatan
@@ -98,7 +99,4 @@ class ResPartner(models.Model):
         result["pph_setahun"] = pph_setahun
         result["pph"] = pph
 
-
         return result
-
-        

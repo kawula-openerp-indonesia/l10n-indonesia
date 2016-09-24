@@ -14,19 +14,19 @@ class Pph21TunjanganJabatan(models.Model):
     name = fields.Char(
         string="Dasar Hukum",
         required=True,
-        )
+    )
     date_start = fields.Date(
         string="Tanggal Mulai Berlaku",
         required=True,
-        )
+    )
     rate_biaya_jabatan = fields.Float(
         string="Rate Biaya Jabatan",
         required=True,
-        )
+    )
     max_biaya_jabatan = fields.Float(
         string="Max. Biaya Jabatan",
         required=True,
-        )
+    )
 
     @api.model
     def find(self, dt=None):
@@ -40,7 +40,7 @@ class Pph21TunjanganJabatan(models.Model):
 
     @api.multi
     def get_biaya_jabatan_rutin(
-            self, 
+            self,
             jumlah_penghasilan_rutin=0.0,
             tanggal_pemotongan=False):
         self.ensure_one()
@@ -55,7 +55,7 @@ class Pph21TunjanganJabatan(models.Model):
 
     @api.multi
     def get_biaya_jabatan_non_rutin(
-            self, 
+            self,
             jumlah_penghasilan_non_rutin=0.0,
             biaya_jabatan_rutin=0.0,
             tanggal_pemotongan=False):
@@ -71,17 +71,17 @@ class Pph21TunjanganJabatan(models.Model):
 
     @api.multi
     def get_biaya_jabatan(
-            self, 
+            self,
             jumlah_penghasilan_rutin=0.0,
             jumlah_penghasilan_non_rutin=0.0,
             tanggal_pemotongan=False):
-        #TODO:
+        # TODO:
         self.ensure_one()
         result = {
             "biaya_jabatan_rutin": 0.0,
             "biaya_jabatan_non_rutin": 0.0,
             "biaya_jabatan": 0.0,
-            }
+        }
         biaya_jabatan_rutin = self.get_biaya_jabatan_rutin(
             jumlah_penghasilan_rutin,
             tanggal_pemotongan)

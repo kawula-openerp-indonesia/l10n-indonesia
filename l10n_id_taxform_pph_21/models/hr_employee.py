@@ -11,12 +11,12 @@ class HrEmployee(models.Model):
     ptkp_category_id = fields.Many2one(
         string="PTKP Category",
         comodel_name="l10n_id.ptkp_category",
-        )
+    )
     join_tax_period_id = fields.Many2one(
         string="Masa Pajak Bergabung",
         comodel_name="l10n_id.tax_period",
-        )
+    )
     join_tax_year_id = fields.Many2one(
         string="Tahun Pajak Bergabung",
         comodel_name="l10n_id.tax_year",
-        )
+    )

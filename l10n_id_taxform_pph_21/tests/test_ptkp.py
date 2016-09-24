@@ -6,6 +6,7 @@ from openerp.tests.common import TransactionCase
 
 
 class PtkpCase(TransactionCase):
+
     def setUp(self, *args, **kwargs):
         super(PtkpCase, self).setUp(*args, **kwargs)
         self.cat_1 = self.env.ref("l10n_id_taxform_pph_21.ptkp_k0")
@@ -15,10 +16,10 @@ class PtkpCase(TransactionCase):
         self.assertEqual(
             self.cat_1.get_rate(),
             39000000.0
-            )
+        )
 
     def test_2(self):
         self.assertEqual(
             self.cat_2.get_rate(),
             45000000.0
-            )
+        )

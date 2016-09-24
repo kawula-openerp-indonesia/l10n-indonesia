@@ -6,6 +6,7 @@ from openerp.tests.common import TransactionCase
 
 
 class Pph21RateCase(TransactionCase):
+
     def setUp(self, *args, **kwargs):
         super(Pph21RateCase, self).setUp(*args, **kwargs)
         self.obj_pph_rate = self.env["l10n_id.pph_21_rate"]
@@ -21,4 +22,3 @@ class Pph21RateCase(TransactionCase):
             pph_rate.compute_tax(
                 46500000.0),
             2325000.0)
-
