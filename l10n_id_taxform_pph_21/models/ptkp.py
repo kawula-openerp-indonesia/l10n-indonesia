@@ -3,6 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, fields, api
+from openerp.tools.translate import _
+from datetime import datetime
 
 
 class PtkpCategory(models.Model):
@@ -17,10 +19,12 @@ class PtkpCategory(models.Model):
         string="Additional Note",
         )
 
-    @api.model
-    def _get_rate(self, dt=None):
-        #TODO:
-        result = False
+    @api.multi
+    def get_rate(self, dt=None):
+        self.ensure_one()
+        obj_ptkp = self.env["l10n_id.ptkp"]
+        ptkp = obj_ptkp.find(dt)
+        result = ptkp.get_rate(self)
         return result
 
 class Ptkp(models.Model):
@@ -43,6 +47,25 @@ class Ptkp(models.Model):
         comodel_name="l10n_id.ptkp_line",
         inverse_name="ptkp_id",
         )
+
+    @api.model
+    def find(self, dt=None):
+        if not dt:
+            dt = datetime.now().strftime("%Y-%m-%d")
+        criteria = [("date_start", "<=", dt)]
+        results = self.search(criteria, limit=1)
+        if not results:
+            raise models.ValidationError(_("Wes"))
+        return results[0]
+
+    @api.multi
+    def get_rate(self, ptkp_category):
+        self.ensure_one()
+        lines = self.line_ids.filtered(lambda r: r.ptkp_category_id.id == ptkp_category.id)
+        if not lines:
+            raise models.ValidationError(_("Wes"))
+        return lines[0].ptkp_rate
+
 
 class PtkpLine(models.Model):
     _name = "l10n_id.ptkp_line"

@@ -14,13 +14,14 @@
         "l10n_id_taxform_period",
         "hr",
     ],
-    # "data": [
-    #     # "data/ptkp_category_data.xml",
-    #     # "views/ptkp_views.xml",
-    # ],
-    # "demo": [
-        # "demo/pph_21_biaya_jabatan_demo.xml",
-        # "demo/pph_21_npwp_rate_modifier_demo.xml",
-        # "demo/pph_21_rate_demo.xml",
-        # ]
+    "data": [
+        "data/ptkp_category_data.xml",
+        # "views/ptkp_views.xml",
+    ],
+    "demo": [
+        "demo/pph_21_biaya_jabatan_demo.xml",
+        "demo/pph_21_npwp_rate_modifier_demo.xml",
+        "demo/pph_21_rate_demo.xml",
+        "demo/ptkp_demo.xml",
+        ]
 }
