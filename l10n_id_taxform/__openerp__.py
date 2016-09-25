@@ -4,7 +4,7 @@
 {
     "name": "Indonesia's Taxform",
     "version": "8.0.1.0.0",
-    "category": "Hidden",
+    "category": "localization",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia,"
               "Odoo Community Association (OCA)",
