@@ -2,55 +2,83 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==============
-{module_title}
-==============
+================================================================
+Indonesia's PPh 21 Taxform Related Configuration and Computation
+================================================================
 
-This module extends the functionality of ... to support ...
-and to allow you to ...
+This module provide configurations and computation that related to
+Indonesia's income tax article 21.
+
+Available configurations:
+
+1. Penghasilan Tidak Kena Pajak (PTKP)
+2. Biaya Jabatan
+3. PPh 21 NPWP Rate Modifier
+4. PPh 21 Rate for objek pajak 21-100-01 and 21-100-02
+
+Available computation:
+
+1. PPh 21 for objek pajak 21-100-01 and 21-100-02
+
+All the computations will be used by another modules that needed the
+computations.
 
 Installation
 ============
 
 To install this module, you need to:
 
-#. Do this ...
+1.  Clone the branch 8.0 of the repository https://github.com/OCA/l10n-indonesia
+2.  Add the path to this repository in your configuration (addons-path)
+3.  Update the module list
+4.  Go to menu *Setting -> Modules -> Local Modules*
+5.  Search For *Indonesia's PPh 21 Taxform Related Configuration and Computation*
+6.  Install the module
 
-Configuration
-=============
-
-To configure this module, you need to:
-
-#. Go to ...
-
-.. figure:: path/to/local/image.png
-   :alt: alternative description
-   :width: 600 px
 
 Usage
 =====
 
-To use this module, you need to:
+**PTKP Categories**
 
-#. Go to ...
+To manage PTKP categories, you need to:
+
+1. Go to menu *Taxform -> Configuration -> PPh 21 -> PTKP Category*
+
+**PTKP Rates**
+
+To manage PTKP rates, you need to:
+
+1. Go to menu *Taxform -> Configuration -> PPh 21 -> PTKP Rates*
+
+**Biaya Jabatan**
+
+To manage Biaya Jabatan, you need to:
+
+1. Go to menu *Taxform -> Configuration -> PPh 21 -> Biaya Jabatan*
+
+**Non-NPWP Rate Modifiers**
+
+To manage Non-NPWP Rate Modifiers, you need to:
+
+1. Go to menu *Taxform -> Configuration -> PPh 21 -> Non-NPWP Rate Modifiers*
+
+**PPh 21 Rates**
+
+To manage PPh 21 Rates, you need to:
+
+1. Go to menu *Taxform -> Configuration -> PPh 21 -> PPh 21 Rates*
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/{repo_id}/{branch}
+   :target: https://runbot.odoo-community.org/runbot/219/8.0
 
-.. repo_id is available in https://github.com/OCA/maintainer-tools/blob/master/tools/repos_with_ids.txt
-.. branch is "8.0" for example
-
-Known issues / Roadmap
-======================
-
-* ...
 
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/OCA/{project_repo}/issues>`_. In case of trouble, please
+<https://github.com/OCA/l10n-indonesia/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
 help us smashing it by providing a detailed and welcomed feedback.
 
@@ -65,8 +93,7 @@ Images
 Contributors
 ------------
 
-* Firstname Lastname <email.address@example.org>
-* Second Person <second.person@example.org>
+* Andhitia Rama <andhitia.r@gmail.com>
 
 Maintainer
 ----------
