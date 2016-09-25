@@ -52,6 +52,7 @@
     id="tax_year_menu"
     name="Tax Years"
     parent="taxform_period_conf_menu"
+    groups="l10n_id_taxform.manager_group_taxform"
     action="tax_year_action"/>
 
 <record id="tax_period_view_tree" model="ir.ui.view">
@@ -96,6 +97,7 @@
     id="tax_period_menu"
     name="Tax Periods"
     parent="taxform_period_conf_menu"
+    groups="l10n_id_taxform.manager_group_taxform"
     action="tax_period_action"/>
 </data>
 </openerp>

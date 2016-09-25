@@ -7,9 +7,9 @@
 <data>
 
 <menuitem
-    id="taxform_ptkp_conf_menu"
-    name="PTKP"
-    parent="taxform_configuration_menu"
+    id="taxform_pph_21_conf_menu"
+    name="PPh 21"
+    parent="l10n_id_taxform.taxform_configuration_menu"
     />
 
 <record id="ptkp_category_view_tree" model="ir.ui.view">
@@ -46,7 +46,8 @@
 <menuitem
     id="ptkp_category_menu"
     name="PTKP Category"
-    parent="taxform_ptkp_conf_menu"
+    parent="taxform_pph_21_conf_menu"
+    groups="l10n_id_taxform.manager_group_taxform"
     action="ptkp_category_action"/>
 
 <record id="ptkp_view_tree" model="ir.ui.view">
@@ -94,7 +95,8 @@
 <menuitem
     id="ptkp_menu"
     name="Tarif PTKP"
-    parent="taxform_ptkp_conf_menu"
+    parent="taxform_pph_21_conf_menu"
+    groups="l10n_id_taxform.manager_group_taxform"
     action="ptkp_action"/>
 
 </data>
