@@ -15,6 +15,7 @@
         "hr",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "data/ptkp_category_data.xml",
         # "views/ptkp_views.xml",
     ],

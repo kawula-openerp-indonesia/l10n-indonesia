@@ -15,6 +15,7 @@
         "base",
     ],
     "data": [
+        "security/taxform_groups.xml",
         "menu.xml",
     ],
 }

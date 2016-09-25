@@ -15,6 +15,7 @@
         "l10n_id_taxform",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "views/tax_period_views.xml",
     ],
     "demo": [
